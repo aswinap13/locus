@@ -1,7 +1,7 @@
 import React from 'react';
 import './login.module.css';
 
-const FormSuccess = () => {
+export const LoginSuccess = () => {
   return (
     <div className='form-content-right'>
       <img className='form-img-2' src={require('../img/logo.png')} alt='success-image' />
@@ -12,4 +12,3 @@ const FormSuccess = () => {
   );
 };
 
-export default FormSuccess;
