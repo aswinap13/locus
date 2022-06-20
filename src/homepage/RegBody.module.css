@@ -1,0 +1,147 @@
+.homepage{
+    color: white;
+    min-width: 300px;
+    width: 80%;
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    margin: 2% auto;
+    border-radius: 20px;
+    text-align: center;
+    background: rgb(138,238,240);
+    background-image: linear-gradient(70deg, #1173cfe7 0%, #ae06b1e0 100%);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+.hpcontent h1{
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.hpcontent p{
+    width: 90%;
+    margin: 2% auto;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+}
+.hpcontent button{
+    display: block;
+    outline: none;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Exo 2', sans-serif;
+    width: 40%;
+    margin: 5% auto;
+    padding: 1rem 1.5rem;
+    transition: 0.5s;
+    border-radius: 10px;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 5px rgb(255 255 255 / 51%);
+    background-image: linear-gradient(to right, #141E30 0%, #243B55 51%, #141E30 100%);
+}
+.hpcontent button:hover{
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.hpcontent button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+.hpimg{
+    margin-left: 50px;
+}
+.hpimg img{
+    padding: 0%;
+    max-width: 800px;
+    width: 90%;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgb(255 255 255 / 99%);
+}
+
+.whoarewe{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    border-radius: 10px;
+    margin: 5% auto;
+    width: 80%;
+    background-image: url('../img/cetlogo.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+
+.whead{
+    padding: 4%;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+.wcontent{
+    font-size: 16px;
+    padding: 2%;
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    }
+    @media only screen and (max-width: 600px){
+       .homepage{
+        min-height: 80vh;
+        flex-direction: column;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .hpcontent{
+            width: 100% !important;
+        }
+        .hpimg img{
+            margin-top: 1rem;
+            padding: 0;
+        }
+        .hpimg{
+            padding: 0;
+            margin: 0;
+            margin-top: 1rem;
+        }
+        .hpcontent h1{
+            margin: 0;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .hpcontent p{
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .hpcontent button{
+            width: 70%;
+            font-size: 14px;
+            margin: 10% auto;
+            margin-bottom: 5%;
+            padding: 0.7rem 1.2rem;
+            border-radius: 10px;
+            background-size: 200% auto;
+        }
+        .wcontent{
+            font-size: 14px;
+        }
+    }

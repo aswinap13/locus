@@ -1,0 +1,142 @@
+.form-container {
+  top: 6vw;
+  left: 30vw;
+  position: absolute;
+  margin: auto;
+  height: 85vh;
+  width: 35vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: rgba( 255, 255, 255, 0.35 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 9.5px );
+  -webkit-backdrop-filter: blur( 9.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.close{
+  display: none;
+}
+.formhead{
+  text-align:center !important;
+}
+.form {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+.form-img-2 {
+  position: absolute;
+  width: 70%;
+  height: 60%;
+  top: 35%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+}
+
+.form-success {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 80%;
+  color: rgb(0, 0, 0);
+  opacity: 1;
+}
+
+.form h1 {
+  color: black !important;
+  font-size: 1.5rem;
+  text-align: start;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.form-inputs {
+  width: 80%;
+  margin-bottom: 8px;
+  color: black !important;
+}
+
+.form-inputs p {
+  font-size: 0.8rem;
+  color: #5539b9;
+}
+
+.form-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: black !important;
+}
+
+.form-input {
+  display: block;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 40px;
+  width: 100%;
+  border: none;
+}
+
+.form-input::placeholder {
+  color: #595959;
+  font-size: 12px;
+}
+
+.form-input-btn {
+  width: 80%;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 176, 255) 0%,
+    rgb(0, 232, 236) 100%
+  );
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.form-input-btn:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 143, 255) 0%,
+    rgb(12, 99, 250) 100%
+  );
+  transition: all 0.4s ease-out;
+}
+
+.form-input-login {
+  font-size: 0.8rem;
+  margin-top: 10px;
+  color: #5539b9;
+  width: 80%;
+  text-align: center;
+}
+
+.form-input-login a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 760px) {
+  .form-container {
+    width: 80vw;
+    left: 10vw;
+  }
+  .close{
+    display: block;
+  }
+}

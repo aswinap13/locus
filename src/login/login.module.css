@@ -1,0 +1,42 @@
+.login{
+    top: 6vw;
+    left: 30vw;
+    height: 75vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border: 2px solid red;
+    position: absolute;
+    margin: auto;
+    border-radius: 10px;
+    background: rgba( 255, 255, 255, 0.35 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 9.5px );
+    -webkit-backdrop-filter: blur( 9.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+label{
+    margin-bottom: 10px;
+}
+input{
+    margin-bottom: 10px;
+}
+.closer{
+    position: absolute;
+    top: 3rem;
+    left: 80%;
+}
+ 
+@media screen and (max-width: 600px) {
+    .login{
+        top: 25vw;
+        height: 50vh;
+      width: 80vw;
+      left: 10vw;
+      font-size: small;
+    }
+  }
