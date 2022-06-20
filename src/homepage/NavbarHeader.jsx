@@ -6,7 +6,7 @@ import Former from '../registration/Former';
 import { FaListUl } from 'react-icons/fa';
 // import RegBody from './RegBody';
 import { Link } from 'react-router-dom';
-import { Login } from '../login/Login';
+import  Login  from '../login/Login';
 
 
 function NavbarHeader() {
@@ -30,8 +30,10 @@ function NavbarHeader() {
                 {!active && <Former/>}
               </li> */}
               <li className={`${"nav-item"} ${classes.navItem}`}>
-                <a className="nav-link" href="#"  onClick={() => setactivelog(!activelog) }>Log In</a>
-                {!activelog && <Login setactivelog={setactivelog} activelog={activelog} />}
+
+                  <a className="nav-link" href="#"  onClick={() => setactivelog(!activelog) }>Log In</a>
+                  {!activelog && <Login setactivelog={setactivelog} activelog={activelog} />}
+                  
               </li>
               <li className={`${"nav-item"} ${classes.navItem}`}>
                 <a className="nav-link" href="#whoarewe">About Us</a>
