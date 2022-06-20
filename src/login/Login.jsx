@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import classes from './login.module.css'
-import loginSuccess from './loginSucces';
+import classes from './login.module.css';
+import UserHome from '../user/UserHome';
+
 
  const Login=(props) => {
   
@@ -13,7 +14,6 @@ import loginSuccess from './loginSucces';
   function submitForm() {
     setIsSubmitted(true);
   }
-  
   return (
     <div className={classes.cont}>
         {!isSubmitted ? (
@@ -26,13 +26,12 @@ import loginSuccess from './loginSucces';
                 <input type="text" ></input>
                 <label htmlFor="userID">password</label>
                 <input type="password"></input>
-                <button type='submit'>Submit</button>          
+                <button type='submit' onClick={submitForm}>Submit</button>          
             </form>
           </>
         ) : (
-          <loginSuccess />
+          <UserHome />
         )}
-        
     </div>
   )
 }

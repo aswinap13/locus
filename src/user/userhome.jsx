@@ -1,20 +1,29 @@
-import React from 'react'
+import React,{useState} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import  classes from './userhome.module.css';
+import AboutUser from './AboutUser';
+import Instructions from '../user/Instructions';
+import Status from '../user/Status';
 
-function userhome() {
+
+ const UserHome=() => {
+ 
+  
   return (
-    <div>
-        <header></header>
-        <div>
-            <aboutUser/>
-            <div>
-                
-            </div>
+    <div className={`${classes.userhome} container`}>
+      <div className="row usercontent md-12">
+        <div className="userdetails col-md-4">
+          <AboutUser/>
         </div>
-
-
-
+        <div className="examdetails col-md-8">
+          
+          <Instructions/>
+          {/* <Status/> */}
+        </div>
+        <button className={`${classes.takemeto} btn`}>Take me to exam!!!</button>
+      </div>
+      
     </div>
   )
-}
-
-export default userhome
+ }
+ export default UserHome;

@@ -2,14 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from './NavbarHeader.module.css';
-import Former from '../registration/Former';
 import { FaListUl } from 'react-icons/fa';
 // import RegBody from './RegBody';
-import { Link } from 'react-router-dom';
+// import Former from '../registration/Former';
+// import { Link } from 'react-router-dom';
 import  Login  from '../login/Login';
 
 
-function NavbarHeader() {
+const NavbarHeader=() => {
   // const [active,setactive] = useState("false");
   const [activelog,setactivelog] = useState("false");
   return (

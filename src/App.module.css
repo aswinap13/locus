@@ -1,6 +1,8 @@
 .App{
   background-color: #d0dbe2;
   font-family: 'Exo 2', sans-serif;width: 100%;
+  height: 100%;
+  padding-bottom: 4rem;
  } 
  .btn:focus {
      outline: none;
