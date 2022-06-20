@@ -6,6 +6,7 @@ import styles from './App.module.css';
 import CircleLoader from "react-spinners/CircleLoader";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import UserHome from './user/UserHome';
+import ExamControl from './examination/ExamControl';
 
 
 function App() {
@@ -30,12 +31,17 @@ function App() {
         
         :
           <Router>
-            <header>
-            {<NavbarHeader/>}
-            </header>
+           
             <Routes>
-                <Route exact path="/" element={<RegBody/>}/>
+                <Route exact path="/" element={ 
+                <>
+                  <header>
+                    {<NavbarHeader/>}
+                  </header>
+                  <RegBody/>
+                </>}/>
                 <Route exact path="/Home" element={<UserHome/>}/>
+                <Route exact path="/exam" element={<ExamControl/>}/>
             </Routes>
           </Router>
     }

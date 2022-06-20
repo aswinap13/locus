@@ -79,3 +79,7 @@ body{
 .takemeto:focus{
     box-shadow: none;
 }
+.logoimg{
+    max-width: 300px;
+    margin-bottom: 2rem;
+}

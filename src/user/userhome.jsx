@@ -10,7 +10,9 @@ import Status from '../user/Status';
  
   
   return (
-    <div className={`${classes.userhome} container`}>
+    <div className={classes.mainuserhome}>
+        <img src={require('../img/locuscetlogo.png')} className={classes.logoimg}></img>
+      <div className={`${classes.userhome} container`}>
       <div className="row usercontent md-12">
         <div className="userdetails col-md-4">
           <AboutUser/>
@@ -24,6 +26,8 @@ import Status from '../user/Status';
       </div>
       
     </div>
+    </div>
+    
   )
  }
  export default UserHome;
