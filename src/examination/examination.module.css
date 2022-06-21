@@ -1,12 +1,10 @@
 .examcontrol{
-    border: 2px solid red;
     height: 100vh;
     background: rgb(207, 244, 255);
     display: flex;
     flex-direction: column;
 }
 .head{
-    border: 2px solid red;
     background: #fff ;
     display: flex;
     flex-direction: row;
@@ -14,24 +12,24 @@
     align-items: center;
 }
 .head img{
-    border: 2px solid red;
     padding: 0;
     margin: 0 !important;
 }
 .body{
-    border: 2px solid red;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
 }
 .question{
-    border: 2px solid red;
-    width: 60vw;
-    height: 60vh;
+    border: 2px solid rgb(119, 115, 115);
+    width: 65vw;
+    height: 70vh;
+    padding: 4rem;
 }
+
 .choseField{
-    border: 2px solid red;
+    border: 2px solid rgb(124, 123, 123);
     width: 30vw;
     height: 60vh;
 }
@@ -40,7 +38,6 @@
     margin: 0 auto;
     text-align: center;
     width: 95vw;
-    border: 2px solid red;
     height: 10vh;
     justify-content: flex-end;
     align-items: center;
@@ -58,4 +55,40 @@
 .btn:focus{
     box-shadow: none;  
     outline: none;
+}
+.choseField{
+    padding: 0rem 2rem;
+}
+.questionSec{
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.subjects{
+    margin-top: 1rem;
+    align-items: center;
+}
+.questionChose{
+    padding:5px 10px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+/* CurrentQuestion */
+.options{
+    display: flex;
+    flex-direction: column;
+}
+.option{
+    margin-top: 1rem;
+    align-items: center;
+    
+}
+.option input{
+margin-right: 1rem;
 }
