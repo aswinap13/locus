@@ -1,0 +1,61 @@
+.examcontrol{
+    border: 2px solid red;
+    height: 100vh;
+    background: rgb(207, 244, 255);
+    display: flex;
+    flex-direction: column;
+}
+.head{
+    border: 2px solid red;
+    background: #fff ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.head img{
+    border: 2px solid red;
+    padding: 0;
+    margin: 0 !important;
+}
+.body{
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+.question{
+    border: 2px solid red;
+    width: 60vw;
+    height: 60vh;
+}
+.choseField{
+    border: 2px solid red;
+    width: 30vw;
+    height: 60vh;
+}
+.footer{
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    width: 95vw;
+    border: 2px solid red;
+    height: 10vh;
+    justify-content: flex-end;
+    align-items: center;
+}
+.footer button{
+    box-shadow: none;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+}
+.btn{
+    outline: none;
+    box-shadow: none;  
+    outline: none ;
+}
+.btn:focus{
+    box-shadow: none;  
+    outline: none;
+}

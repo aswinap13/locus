@@ -6,7 +6,7 @@ import classes from  './examination.module.css';
  
   
   return ( 
-        <div className={classes.question}>
+        <div className={classes.timer}>
             
             
         </div>
