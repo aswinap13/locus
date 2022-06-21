@@ -4,6 +4,9 @@ import RegBody from './homepage/RegBody';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './App.module.css';
 import CircleLoader from "react-spinners/CircleLoader";
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import UserHome from './user/UserHome';
+import ExamControl from './examination/ExamControl';
 
 
 function App() {
@@ -12,7 +15,7 @@ function App() {
       setLoading(true)
         setTimeout(()=>{
           setLoading(false)
-        },50)
+        },5000)
     },[])
 
   return (
@@ -27,12 +30,20 @@ function App() {
           </div>
         
         :
-          <>
-            <header>
-            {<NavbarHeader/>}
-            </header>
-            <RegBody/>
-          </>
+          <Router>
+           
+            <Routes>
+                <Route exact path="/" element={ 
+                <>
+                  <header>
+                    {<NavbarHeader/>}
+                  </header>
+                  <RegBody/>
+                </>}/>
+                <Route exact path="/Home" element={<UserHome/>}/>
+                <Route exact path="/exam" element={<ExamControl/>}/>
+            </Routes>
+          </Router>
     }
      
     </div>
