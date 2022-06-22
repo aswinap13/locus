@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from './login.module.css';
-import UserHome from '../user/UserHome';
+import { useNavigate } from 'react-router-dom';
+
 
 
  const Login=(props) => {
@@ -9,14 +10,9 @@ import UserHome from '../user/UserHome';
   const setactiveloger=props.setactivelog;
   const activeloger=props.activelog;
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  function submitForm() {
-    setIsSubmitted(true);
-  }
+  const navigate = useNavigate();
   return (
     <div className={classes.cont}>
-        {!isSubmitted ? (
           <>
             <form className={classes.login}>          
               <button type='button' className={classes.closer} onClick={() => setactiveloger(!activeloger)}>
@@ -26,12 +22,11 @@ import UserHome from '../user/UserHome';
                 <input type="text" ></input>
                 <label htmlFor="userID">password</label>
                 <input type="password"></input>
-                <button type='submit' onClick={submitForm}>Submit</button>          
+                <button type='submit' onClick={()=>{
+                    navigate('/Home');
+                }}>Submit</button>          
             </form>
           </>
-        ) : (
-          <UserHome />
-        )}
     </div>
   )
 }

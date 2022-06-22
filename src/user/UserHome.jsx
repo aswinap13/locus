@@ -4,11 +4,13 @@ import  classes from './userhome.module.css';
 import AboutUser from './AboutUser';
 import Instructions from '../user/Instructions';
 import Status from '../user/Status';
+import { useNavigate } from 'react-router-dom';
 
 
  const UserHome=() => {
  
-  
+  const navigate = useNavigate();
+
   return (
     <div className={classes.mainuserhome}>
         <img src={require('../img/locuscetlogo.png')} className={classes.logoimg}></img>
@@ -22,7 +24,9 @@ import Status from '../user/Status';
           <Instructions/>
           {/* <Status/> */}
         </div>
-        <button className={`${classes.takemeto} btn`}>Take me to exam!!!</button>
+        <button className={`${classes.takemeto} btn`} onClick={()=>{
+          navigate('/Exam')
+        }}>Take me to exam!!!</button>
       </div>
       
     </div>

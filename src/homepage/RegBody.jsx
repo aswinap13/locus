@@ -2,8 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from './RegBody.module.css';
 import QueryForm from './QueryForm';
+import { useNavigate } from 'react-router-dom';
 
 function RegBody() {
+  
+  const navigate = useNavigate();
   return (
     <>
       <div className={classes.homepage}>
@@ -15,7 +18,9 @@ function RegBody() {
             Progress moulds success. <br/>
             Enhance your KEAM preparations with LOCUS.
             </p>
-            <button className='btn' >Take Test {'\u00A0'} ➤ </button>
+            <button className='btn' onClick={()=>{
+             navigate('/Login');
+            }} >Take Test {'\u00A0'} ➤ </button>
           </div>
           <div className={classes.hpimg}>
             <img src={require('../img/5834.jpg')}>
