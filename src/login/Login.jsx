@@ -1,15 +1,15 @@
 import React,{useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import classes from './login.module.css'
+import classes from './login.module.css';
 import { useEffect } from 'react';
-import UserHome from '../user/UserHome';
+import { useNavigate } from 'react-router-dom';
+
 
 export const Login = (props) => {
 
     const setactiveloger=props.setactivelog;
     const activeloger=props.activelog;
 
-    const [isSubmitted, setIsSubmitted] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -19,6 +19,8 @@ export const Login = (props) => {
       localStorage.setItem('locus-token', token); // when start, check local storage if locus-token, then auto login
     }, [token])
 
+    const navigate = useNavigate();
+    
     const handleSubmit = (e) => {
       e.preventDefault();
       const data = {username, password};
@@ -43,8 +45,7 @@ export const Login = (props) => {
         console.log(data)
         setError(null)
         setToken(data.token)
-        setIsSubmitted(true);
-
+        navigate('/Home');
       }).catch(err => {
         var err = JSON.parse(err.message)
         if (err.Message) { // when user account not approved yet, code: 401
@@ -54,12 +55,12 @@ export const Login = (props) => {
         } else { // when something else
           setError("Something occured..please try again later..")
         }
-        setIsSubmitted(false);
       })
     }
+
+  
   return (
     <div>
-        {!isSubmitted ? (
           <>
             <form className={classes.login}>          
               <button type='button' className={classes.closer} onClick={() => setactiveloger(!activeloger)}>
@@ -73,9 +74,6 @@ export const Login = (props) => {
                 <button type='submit' onClick={handleSubmit}>Submit</button>          
             </form>
           </>
-        ) : (
-          <UserHome />
-        )}
     </div>
   )
 }
