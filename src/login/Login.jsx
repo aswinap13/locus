@@ -42,7 +42,6 @@ export const Login = (props) => {
           return response.text().then(text => {throw new Error(text)})
         }
       }).then(data => {
-        console.log(data)
         setError(null)
         setToken(data.token)
         navigate('/Home');
