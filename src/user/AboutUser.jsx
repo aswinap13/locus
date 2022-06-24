@@ -4,11 +4,10 @@ import classes from  './userhome.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
- const AboutUser=() => {
+ const AboutUser=({ exams }) => {
 
     const navigate = useNavigate();
     const [name, setName] = useState('');
-    const [exams, setExams] = useState([]);
 
     let token;
 
@@ -50,30 +49,9 @@ import { useEffect } from 'react';
         })
     }
     
-    const fetchActiveExams = () => {
-        fetch("http://locusback.herokuapp.com/exam/active/", options)
-        .then(response => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                return response.text().then(text => {throw new Error(text)})
-            }
-        }).then(data => {
-            setExams(data)
-        }).catch(err => {
-            var err = JSON.parse(err.message)
-            if (err.detail) {
-                alert('Please login again....');
-                navigate('/Login');
-            } else {
-                alert('Something occured, please refresh the page...');
-            }
-        })
-    }
 
     useEffect(() => {
         fetchDetails();
-        fetchActiveExams();
     }, [])   
   
   return ( 

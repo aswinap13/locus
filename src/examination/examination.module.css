@@ -76,6 +76,9 @@
     justify-content: center;
 }
 
+.marked {
+    background-color: yellow;
+}
 /* CurrentQuestion */
 .options{
     display: flex;

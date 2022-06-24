@@ -17,6 +17,7 @@ const ExamControl=() => {
     const [currentque, setCurrentque] = useState(0);
     const [answers, setAnswers] = useState([]);
     const [currentoption, setCurrentoption] = useState();
+    const [marked, setMarked] = useState([]);
 
     let token;
 
@@ -62,24 +63,42 @@ const ExamControl=() => {
             })
     }
 
-    useEffect(() => {
-        fetchExam();
-    }, []) 
-
     const handleNext = (e) => {
         e.preventDefault();
-        let num_questions = exam.subjects[currentsub].questions.length
-        //setCurrentoption() // resetting option
+        let num_questions = exam.subjects[currentsub].questions.length;
+        let num_subjects = exam.subjects.length;
+        let currq = currentque;
+        let currsub = currentsub;
+      
         if (currentque < num_questions - 1) {
+            currq++;
             setCurrentque(currentque+1);
+        } else if (currentsub < num_subjects - 1) {
+            setCurrentsub(currentsub+1);
+            setCurrentque(0);
         }
+
+        // check if next already saved, if yes then set currentOption
+        // if (currq <= num_questions - 1) {
+        //     let question_id = exam.subjects[currsub].questions[currq].id;
+        //     const answer_index = answers.findIndex(ans => (ans.id === question_id))
+        //     if (answer_index !== -1) {     
+        //         setCurrentoption(answers[answer_index].answer)
+        //     } else {
+        //         setCurrentoption();
+        //     }
+        // }
+   
         // add else for ui case for last question
     }
 
     const handleSaveNext = (e) => {
         e.preventDefault();
         let num_questions = exam.subjects[currentsub].questions.length;
+        let num_subjects = exam.subjects.length;
         let question_id = exam.subjects[currentsub].questions[currentque].id;
+        let currq = currentque;
+        let currsub = currentsub;
         
         const answer_index = answers.findIndex(ans => (ans.id === question_id))
         if (answer_index === -1) {     
@@ -89,10 +108,26 @@ const ExamControl=() => {
             newanswers[answer_index].answer = currentoption;
             setAnswers(newanswers);
         }
-        //setCurrentoption() // resetting option
+
         if (currentque < num_questions - 1) {
+            currq++;
             setCurrentque(currentque+1);
+        } else if (currentsub < num_subjects - 1) {
+            setCurrentsub(currentsub+1);
+            setCurrentque(0);
         }
+
+        // check if next already saved, if yes then set currentOption
+        // if (currq <= num_questions - 1) {
+        //     let question_id = exam.subjects[currsub].questions[currq].id;
+        //     const answer_index = answers.findIndex(ans => (ans.id === question_id))
+        //     if (answer_index !== -1) {     
+        //         setCurrentoption(answers[answer_index].answer)
+        //     } else {
+        //         setCurrentoption();
+        //     }
+        // }
+        
         // add else for ui case for last question
     }
 
@@ -147,6 +182,37 @@ const ExamControl=() => {
           })
     } 
 
+    const handleMarked = (e) => {
+        e.preventDefault();
+
+        const question_id = exam.subjects[currentsub].questions[currentque].id;
+        const markedindex = marked.findIndex(m => (m.id === question_id));
+        if (markedindex === -1) {
+            setMarked([...marked, question_id])
+        } // else if already marked..unmark or do nothing ??
+    }
+
+    useEffect(() => {
+        fetchExam();
+    }, []) 
+
+    useEffect(() => {
+        if (exam !== undefined) {
+            let num_questions = exam.subjects[currentsub].questions.length;
+            if (currentque < num_questions) {
+                let question_id = exam.subjects[currentsub].questions[currentque].id;
+                const answer_index = answers.findIndex(ans => (ans.id === question_id))
+                if (answer_index !== -1) {     
+                    setCurrentoption(answers[answer_index].answer)
+                } else {
+                    setCurrentoption();
+                }
+            } else {
+                setCurrentoption();
+            }
+        }
+    }, [currentque, currentsub])
+
    return ( 
         <div className={classes.examcontrol}>
             <div className={classes.head}>
@@ -158,15 +224,20 @@ const ExamControl=() => {
             </div>
             <div className={classes.body}>
             { exam && <Question
-                        queindex={currentque}
-                        subindex={currentsub}
-                        subjects={exam.subjects}
+                        question={exam.subjects[currentsub].questions[currentque]}
+                        currentoption={currentoption}
                         setCurrentoption={setCurrentoption}
                         /> }
-            { exam && <ChoseField subjects={exam.subjects} /> }
+            { exam && <ChoseField
+                        subjects={exam.subjects}
+                        subindex={currentsub}
+                        setsubindex={setCurrentsub}
+                        setqueindex={setCurrentque}
+                        marked={marked}
+                        /> }
             </div>
             <div className={classes.footer}>
-                <button className={`${classes.btn} btn btn-warning`}>Mark For Review</button>
+                <button className={`${classes.btn} btn btn-warning`} onClick={handleMarked}>Mark For Review</button>
                 <button className={`${classes.btn} btn btn-info`} onClick={handleSaveNext}>Save and Next</button>
                 <button className={`${classes.btn} btn btn-primary`} onClick={handleNext}>Next</button>
                 <button className={`${classes.btn} btn btn-success`} onClick={handleSubmit}>Submit Test</button>
@@ -174,5 +245,6 @@ const ExamControl=() => {
             
         </div>
     )
-        }
+}
+
 export default ExamControl;
