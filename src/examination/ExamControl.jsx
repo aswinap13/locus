@@ -7,8 +7,7 @@ import Question from './Question';
 import ChoseField from './ChoseField';
 
  const ExamControl=() => {
- 
-  
+
   return ( 
         <div className={classes.examcontrol}>
             <div className={classes.head}>
@@ -17,6 +16,7 @@ import ChoseField from './ChoseField';
                 </logo>
                 <Timer/>
             </div>
+            
             <div className={classes.body}>
                 <Question/>
                 <ChoseField/>

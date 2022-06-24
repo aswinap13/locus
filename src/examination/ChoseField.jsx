@@ -11,9 +11,9 @@ import Physics from './Physics'
   return ( 
         <div className={classes.choseField}>
             <div className={`${classes.subjects} row`}>
-                <button className={`col-md-4`}>Maths</button>
-                <button className={`col-md-4`}>Physics</button>
-                <button className={`col-md-4`}>Chemistry</button>
+                <button className={`col-md-12`}>Maths</button>
+                {/* <button className={`col-md-4`}>Physics</button>
+                <button className={`col-md-4`}>Chemistry</button> */}
             </div>
             <div className={`${classes.questionSec} row`}>
                 <Maths/>
