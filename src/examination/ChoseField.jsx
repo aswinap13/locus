@@ -22,7 +22,11 @@ const ChoseField=({ answers, subjects, subindex, setsubindex, setqueindex, marke
         <div className={classes.choseField}>
             <div className={`${classes.subjects} row`}>
                 { subjects.map(subject => (
-                    <button key={subject.id} className={`col-md-12`} onClick={(e) => handleSubjectbtn(e, subject.id)}>{ subject.name }</button>
+                    <button 
+                        key={subject.id}
+                        className={`col-md-12 ${subjects.findIndex(sub => (sub.id === subject.id)) === subindex ? classes.subactive : ""}`} 
+                        onClick={(e) => handleSubjectbtn(e, subject.id)}
+                        >{ subject.name }</button>
                 ))}
             </div>
             <div className={`${classes.questionSec} row`}>
