@@ -79,8 +79,12 @@
     justify-content: center;
 }
 
-
-
+.marked {
+    background-color: yellow;
+}
+.answered {
+    background-color: aqua;
+}
 
 /* CurrentQuestion */
 .options{

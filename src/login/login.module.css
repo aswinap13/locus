@@ -30,6 +30,10 @@ input{
     top: 3rem;
     left: 80%;
 }
+.error {
+    color: rgb(216, 33, 33);
+    font-size: large;
+}
  
 @media screen and (max-width: 600px) {
     .login{

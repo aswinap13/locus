@@ -3,14 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from './examination.module.css'
 import { useNavigate } from "react-router-dom";
 
- const Timer=() => {
+const Timer= () => {
 
     const navigate = useNavigate();
     const intervalRef=useRef(null);
     const [timer,setTimer]=useState('00:00:00');
 
-// Timer Remaining time
-    function getTimeRemaining(endtime){
+
+    // Timer Remaining time
+    const getTimeRemaining = (endtime) => {
         const total=Date.parse(endtime) - Date.parse(new Date());
         const seconds = Math.floor((total/1000)%60);
         const minutes = Math.floor((total/1000/60)%60);
@@ -22,25 +23,25 @@ import { useNavigate } from "react-router-dom";
         };
     }
 
-// Timer setTime+ Exit + Clear time
-    function startTimer(deadline){
+    // Timer setTime+ Exit + Clear time
+    const startTimer = (deadline) => {
         let {total,days,hours,minutes,seconds}=getTimeRemaining(deadline)
         if(total >=0){
             setTimer(
                 (hours > 9 ? hours : '0'+hours)+ ':' +
                 (minutes > 9 ? minutes : '0'+minutes)+ ':' +
                 (seconds > 9 ? seconds : '0'+seconds)
-            )}
-            else{
-                alert('Time\'s Up!');
-                navigate("/Home");
-                clearInterval(intervalRef.current);
-            }
+            )
+        } else {
+            alert('Time\'s Up!');
+            navigate("/Home");
+            clearInterval(intervalRef.current);
         }
+    }
 
 
-// Timer Logic
-    function clearTimer(endtime){
+    // Timer Logic
+    const clearTimer = (endtime) => {
         setTimer('03:00:00');
         if(intervalRef.current) clearInterval(intervalRef.current);
         const id = setInterval(() => {
@@ -49,19 +50,19 @@ import { useNavigate } from "react-router-dom";
         intervalRef.current = id;
     }
 
-// Setting Up DeadLine Timer
-    function getDeadline(){
+    // Setting Up DeadLine Timer
+    const getDeadline = () => {
         let deadline = new Date();
-        deadline.setSeconds(deadline.getSeconds()+0);
+        deadline.setSeconds(deadline.getSeconds()+15);
         deadline.setMinutes(deadline.getMinutes()+0);
-        deadline.setHours(deadline.getHours()+3);
+        deadline.setHours(deadline.getHours()+0);
         return deadline;
     }
 
-useEffect(()=>{
-    clearTimer(getDeadline());
-    return ()=>{if(intervalRef.current) clearInterval(intervalRef.current)}
-},[])
+    useEffect(()=>{
+        clearTimer(getDeadline());
+        return ()=>{if(intervalRef.current) clearInterval(intervalRef.current)}
+    },[])
 
     return(
         <div className={classes.timermain}>
@@ -69,6 +70,7 @@ useEffect(()=>{
         </div>
     );
 }
+
 export default Timer;
 
 

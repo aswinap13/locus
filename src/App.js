@@ -43,7 +43,7 @@ function App() {
                 </>}/>
                 <Route exact path="/Login" element={<Login/>}/>
                 <Route exact path="/Home" element={<UserHome/>}/>
-                <Route exact path="/exam" element={<ExamControl/>}/>
+                <Route exact path="/exam/:id" element={<ExamControl/>}/>
             </Routes>
           </Router>
     }
