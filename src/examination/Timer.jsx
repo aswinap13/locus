@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from './examination.module.css'
 import { useNavigate } from "react-router-dom";
 
-const Timer= () => {
+const Timer= ({ submitref }) => {
 
     const navigate = useNavigate();
     const intervalRef=useRef(null);
@@ -33,8 +33,8 @@ const Timer= () => {
                 (seconds > 9 ? seconds : '0'+seconds)
             )
         } else {
+            submitref.current.click();
             alert('Time\'s Up!');
-            navigate("/Home");
             clearInterval(intervalRef.current);
         }
     }
@@ -53,9 +53,9 @@ const Timer= () => {
     // Setting Up DeadLine Timer
     const getDeadline = () => {
         let deadline = new Date();
-        deadline.setSeconds(deadline.getSeconds()+15);
+        deadline.setSeconds(deadline.getSeconds()+0);
         deadline.setMinutes(deadline.getMinutes()+0);
-        deadline.setHours(deadline.getHours()+0);
+        deadline.setHours(deadline.getHours()+3);
         return deadline;
     }
 

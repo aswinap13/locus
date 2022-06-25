@@ -7,6 +7,7 @@ import Question from './Question';
 import ChoseField from './ChoseField';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useRef } from 'react';
 
 const ExamControl=() => {
     const { id } = useParams();
@@ -18,6 +19,7 @@ const ExamControl=() => {
     const [answers, setAnswers] = useState([]);
     const [currentoption, setCurrentoption] = useState();
     const [marked, setMarked] = useState([]);
+    const submitref = useRef(null);
 
     let token;
 
@@ -79,17 +81,22 @@ const ExamControl=() => {
 
     const handleSaveNext = (e) => {
         e.preventDefault();
+
+        
+
         let num_questions = exam.subjects[currentsub].questions.length;
         let num_subjects = exam.subjects.length;
         let question_id = exam.subjects[currentsub].questions[currentque].id;
         
         const answer_index = answers.findIndex(ans => (ans.id === question_id))
-        if (answer_index === -1) {     
-            setAnswers([...answers, {id: question_id, answer: currentoption}])
-        } else {
-            let newanswers = answers;
-            newanswers[answer_index].answer = currentoption;
-            setAnswers(newanswers);
+        if (currentoption !== undefined) {
+            if (answer_index === -1) {     
+                setAnswers([...answers, {id: question_id, answer: currentoption}])
+            } else {
+                let newanswers = answers;
+                newanswers[answer_index].answer = currentoption;
+                setAnswers(newanswers);
+            }
         }
 
         if (currentque < num_questions - 1) {
@@ -108,14 +115,17 @@ const ExamControl=() => {
         
         let question_id = exam.subjects[currentsub].questions[currentque].id;
         const answer_index = answers.findIndex(ans => (ans.id === question_id))
-        let newanswers;
-        if (answer_index === -1) { 
-            newanswers = [...answers, {id: question_id, answer: currentoption}];
-            setAnswers([...answers, {id: question_id, answer: currentoption}])
-        } else {
-            newanswers = answers;
-            newanswers[answer_index].answer = currentoption;
-            setAnswers(newanswers);
+        let newanswers = answers;
+
+        if (currentoption !== undefined) {
+            if (answer_index === -1) { 
+                newanswers = [...answers, {id: question_id, answer: currentoption}];
+                setAnswers([...answers, {id: question_id, answer: currentoption}])
+            } else {
+                newanswers = answers;
+                newanswers[answer_index].answer = currentoption;
+                setAnswers(newanswers);
+            }
         }
 
 
@@ -192,7 +202,7 @@ const ExamControl=() => {
                 <img src={require('../img/locuscetlogo.png')} className={styles.logoimg}></img>
                 </logo>
                 {exam && <h2 className={classes.title}>{exam.name}</h2>}
-                {exam && <Timer/> }
+                {exam && <Timer submitref={submitref}/> }
             </div>
             
             <div className={classes.body}>
@@ -214,7 +224,8 @@ const ExamControl=() => {
                 <button className={`${classes.btn} btn btn-warning`} onClick={handleMarked}>Mark For Review</button>
                 <button className={`${classes.btn} btn btn-info`} onClick={handleSaveNext}>Save and Next</button>
                 <button className={`${classes.btn} btn btn-primary`} onClick={handleNext}>Next</button>
-                <button className={`${classes.btn} btn btn-success`} onClick={handleSubmit}>Submit Test</button>
+                <button ref={submitref} className={`${classes.btn} btn btn-success`} 
+                    onClick={handleSubmit}>Submit Test</button>
             </div>
             
         </div>

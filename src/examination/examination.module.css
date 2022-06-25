@@ -79,6 +79,11 @@
     justify-content: center;
 }
 
+.subactive {
+    border-color: rgba(231, 31, 31, 0.664);
+    border-width: medium;
+}
+
 .marked {
     background-color: yellow;
 }
