@@ -6,7 +6,7 @@ import classes from  './examination.module.css';
 // import Physics from './Physics'
 import QuestionNumbers from './QuestionNumbers';
 
-const ChoseField=({ subjects, subindex, setsubindex, setqueindex, marked }) => {
+const ChoseField=({ answers, subjects, subindex, setsubindex, setqueindex, marked }) => {
 
   const handleSubjectbtn = (e, id) => {
     e.preventDefault();
@@ -22,11 +22,12 @@ const ChoseField=({ subjects, subindex, setsubindex, setqueindex, marked }) => {
         <div className={classes.choseField}>
             <div className={`${classes.subjects} row`}>
                 { subjects.map(subject => (
-                    <button key={subject.id} className={`col-md-4`} onClick={(e) => handleSubjectbtn(e, subject.id)}>{ subject.name }</button>
+                    <button key={subject.id} className={`col-md-12`} onClick={(e) => handleSubjectbtn(e, subject.id)}>{ subject.name }</button>
                 ))}
             </div>
             <div className={`${classes.questionSec} row`}>
                 <QuestionNumbers 
+                    answers={answers}
                     questions={subjects[subindex].questions}
                     num_questions={subjects[subindex].questions.length}
                     subindex={subindex}

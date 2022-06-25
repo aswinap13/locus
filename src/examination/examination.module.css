@@ -31,7 +31,7 @@
 .choseField{
     border: 2px solid rgb(124, 123, 123);
     width: 30vw;
-    height: 60vh;
+    height: 70vh;
 }
 .footer{
     display: flex;
@@ -67,6 +67,9 @@
 .subjects{
     margin-top: 1rem;
     align-items: center;
+    padding:  10px ;
+    font-size: 18px;
+    text-align: center;
 }
 .questionChose{
     padding:5px 10px;
@@ -79,6 +82,10 @@
 .marked {
     background-color: yellow;
 }
+.answered {
+    background-color: aqua;
+}
+
 /* CurrentQuestion */
 .options{
     display: flex;
@@ -91,4 +98,20 @@
 }
 .option input{
 margin-right: 1rem;
+}
+/* timer */
+
+.timermain{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(28, 20, 20);
+    font-size: 2rem;
+    font-weight: 900;
+    margin-right: 3rem;
+    background-color: rgb(131, 246, 121);
+    border-radius: 10px;
+    padding: 10px;
+    width: 20%;
 }

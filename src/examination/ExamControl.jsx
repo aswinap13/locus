@@ -67,28 +67,13 @@ const ExamControl=() => {
         e.preventDefault();
         let num_questions = exam.subjects[currentsub].questions.length;
         let num_subjects = exam.subjects.length;
-        let currq = currentque;
-        let currsub = currentsub;
       
         if (currentque < num_questions - 1) {
-            currq++;
             setCurrentque(currentque+1);
         } else if (currentsub < num_subjects - 1) {
             setCurrentsub(currentsub+1);
             setCurrentque(0);
-        }
-
-        // check if next already saved, if yes then set currentOption
-        // if (currq <= num_questions - 1) {
-        //     let question_id = exam.subjects[currsub].questions[currq].id;
-        //     const answer_index = answers.findIndex(ans => (ans.id === question_id))
-        //     if (answer_index !== -1) {     
-        //         setCurrentoption(answers[answer_index].answer)
-        //     } else {
-        //         setCurrentoption();
-        //     }
-        // }
-   
+        }   
         // add else for ui case for last question
     }
 
@@ -97,8 +82,6 @@ const ExamControl=() => {
         let num_questions = exam.subjects[currentsub].questions.length;
         let num_subjects = exam.subjects.length;
         let question_id = exam.subjects[currentsub].questions[currentque].id;
-        let currq = currentque;
-        let currsub = currentsub;
         
         const answer_index = answers.findIndex(ans => (ans.id === question_id))
         if (answer_index === -1) {     
@@ -110,29 +93,18 @@ const ExamControl=() => {
         }
 
         if (currentque < num_questions - 1) {
-            currq++;
             setCurrentque(currentque+1);
         } else if (currentsub < num_subjects - 1) {
             setCurrentsub(currentsub+1);
             setCurrentque(0);
         }
-
-        // check if next already saved, if yes then set currentOption
-        // if (currq <= num_questions - 1) {
-        //     let question_id = exam.subjects[currsub].questions[currq].id;
-        //     const answer_index = answers.findIndex(ans => (ans.id === question_id))
-        //     if (answer_index !== -1) {     
-        //         setCurrentoption(answers[answer_index].answer)
-        //     } else {
-        //         setCurrentoption();
-        //     }
-        // }
-        
         // add else for ui case for last question
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        if (e !== undefined) {
+            e.preventDefault();
+        }
         
         let question_id = exam.subjects[currentsub].questions[currentque].id;
         const answer_index = answers.findIndex(ans => (ans.id === question_id))
@@ -170,7 +142,7 @@ const ExamControl=() => {
           }).catch(err => {
             var err = JSON.parse(err.message)
             if (err.Message) {
-              alert("You have submitted the exam !!");
+              alert(err.Message);
               navigate('/Home');
             } else if (err.detail) {
               alert('Please login again....');
@@ -220,8 +192,9 @@ const ExamControl=() => {
                 <img src={require('../img/locuscetlogo.png')} className={styles.logoimg}></img>
                 </logo>
                 {exam && <h2 className={classes.title}>{exam.name}</h2>}
-                <Timer/>
+                {exam && <Timer/> }
             </div>
+            
             <div className={classes.body}>
             { exam && <Question
                         question={exam.subjects[currentsub].questions[currentque]}
@@ -229,6 +202,7 @@ const ExamControl=() => {
                         setCurrentoption={setCurrentoption}
                         /> }
             { exam && <ChoseField
+                        answers={answers}
                         subjects={exam.subjects}
                         subindex={currentsub}
                         setsubindex={setCurrentsub}

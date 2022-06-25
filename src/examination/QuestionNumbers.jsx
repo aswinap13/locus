@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from  './examination.module.css';
 
- const QuestionNumbers=({ questions, num_questions, setqueindex, marked }) => {
+ const QuestionNumbers=({ answers, questions, num_questions, setqueindex, marked }) => {
 
   const quesnum_array = [...Array(num_questions).keys()]
 
@@ -17,7 +17,10 @@ import classes from  './examination.module.css';
             { quesnum_array.map(num => (  
                <button 
                     key={num}
-                    className={`${classes.questionChose} col-md-1 ${marked.includes(questions[num].id) ? classes.marked : ""}`} 
+                    className={`${classes.questionChose} 
+                                col-md-1
+                                ${marked.includes(questions[num].id) ? classes.marked : ""}
+                                ${answers.map(ans => (ans.id)).includes(questions[num].id) ? classes.answered : ""}`} 
                     onClick={handleNumclick}>
                 { num + 1 }</button>
             ))}
