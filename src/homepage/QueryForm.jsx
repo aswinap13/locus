@@ -29,10 +29,10 @@ function QueryForm() {
                     </div>
                 </div>
                 <div className={`${classes.footer}`}>
-                        <a href='#' className={classes.ig}>
+                        <a href='https://www.instagram.com/ksu_cet_unit/' target='0' className={classes.ig}>
                         <i class="fa-brands fa-instagram fa-2x"></i>
                         </a>
-                        <a href='#' className={classes.fbb}>
+                        <a href='https://www.facebook.com/groups/ksucet' target='0' className={classes.fbb}>
                         <i class="fa-brands fa-facebook fa-2x"></i>
                         </a>
                     </div>

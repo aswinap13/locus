@@ -60,8 +60,8 @@ import { useEffect } from 'react';
             <h1>Hey {name}</h1>
             <p>
                 Please Read the Instructions given carefully.<br/>
-                Onclicking the exam link provided below, you will be redirected
-                 to an exam page, the test will BEGIN at that MOMENT!
+                <b>Onclicking</b> the exam link provided below, you will be redirected
+                 to the exam page, the test will BEGIN at that MOMENT!
             </p>
             {exams.map(exam => (
                 <button key={exam.id} href="" onClick={()=>{ navigate(`/exam/${exam.id}`) }}>{exam.name}</button>

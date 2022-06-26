@@ -19,6 +19,16 @@
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+.login button{
+    padding: 1px 10px;
+    color:rgb(65, 68, 67) ;
+    border-radius: 10px;
+    border: 2px solid rgb(134, 93, 172);
+}
+.login input{
+    border:2px double rgb(124, 21, 150);
+    border-radius: 5px;
+}
 label{
     margin-bottom: 10px;
 }

@@ -68,7 +68,7 @@ export const Login = (props) => {
                 { error && <p className={classes.error}>{ error }</p>}
                 <label htmlFor="userID">User ID</label>
                 <input type="text" value={username} onChange={(e) => {setUsername(e.target.value)}}></input>
-                <label htmlFor="userID">password</label>
+                <label htmlFor="userID">Password</label>
                 <input type="password" value={password} onChange={(e) => {setPassword(e.target.value)}}></input>
                 <button type='submit' onClick={handleSubmit}>Submit</button>          
             </form>
